@@ -1,0 +1,38 @@
+---
+# tasks file for ansible
+
+- name: Include variables.
+  include_vars: redis.yml
+
+
+# 拷贝脚本
+- name: copy redis.sh
+  copy:
+    src: redis.sh
+    dest: /root/redis.sh
+    owner: root
+    group: root
+    mode: 0755
+
+# 注册变量
+- name: register vars
+  shell: /root/redis.sh
+  register: result
+  ignore_errors: true
+
+# template
+- name: copy config file
+  template:
+    src: t01.conf.j2
+    dest: /root/t01.conf
+    owner: root
+    group: root
+    mode: 0644
+
+- name: delete old appkeys
+  file: path=/data/webapps/appkeys state=absent
+
+- name: test
+  shell:
+
+

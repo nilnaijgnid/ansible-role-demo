@@ -1,0 +1,15 @@
+---
+# vars file for ansible
+
+s01: value01
+s02: value02
+s03: value03
+
+l01:
+  - a
+  - b
+  - c
+
+m01:
+  k01: v01
+  k02: v02

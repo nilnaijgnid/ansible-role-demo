@@ -1,0 +1,13 @@
+{% raw %}#!/bin/bash
+aaa
+bbb
+ccc
+{% endraw %}
+
+xxx: {{ s01 }}
+yyy: {{ l01[0] }}
+zzz: {{ m01.k01 }}
+
+
+supersede ntp-servers 1.1.1.1, 2.2.2.2;
+supersede host-name "{{ s02 }}";
